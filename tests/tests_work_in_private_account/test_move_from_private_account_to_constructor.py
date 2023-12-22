@@ -1,0 +1,37 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
+
+driver = webdriver.Chrome()
+driver.get('https://stellarburgers.nomoreparties.site')
+
+# Найти кнопку «Войти в аккаунт» и кликнуть по ней
+driver.find_element(By.XPATH, ".//div[@class = 'BurgerConstructor_basket__container__2fUl3 mt-10']/button[text() = 'Войти в аккаунт']").click()
+
+# Ввести почту и пароль
+registration_fields = driver.find_elements(By.XPATH, ".//fieldset[@class = 'Auth_fieldset__1QzWN mb-6']//input[@class = 'text input__textfield text_type_main-default']")
+
+registration_fields[0].send_keys("YuliyaBolotskikh4992@yandex.ru")
+registration_fields[1].send_keys("Kotya1")
+
+# Найти кнопку «Войти» и кликнуть по ней
+enter_button = driver.find_element(By.XPATH, ".//form[@class = 'Auth_form__3qKeq mb-20']/button[text() = 'Войти']")
+enter_button.click()
+
+# Дождаться загрузки главной страницы
+WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.TAG_NAME, "main")))
+
+# Зайти в «Личный кабинет»
+driver.find_element(By.XPATH, ".//a[@class='AppHeader_header__link__3D_hX']/p[text()='Личный Кабинет']").click()
+
+# Дождаться загрузки элемента Конструктор
+WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "AppHeader_header__link__3D_hX")))
+
+# Перейти в Конструктор
+driver.find_element(By.LINK_TEXT, "Конструктор").click()
+
+# Дождаться загрузки страницы Конструктора
+WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "BurgerIngredients_ingredients__1N8v2")))
+
+driver.quit()
