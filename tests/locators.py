@@ -60,7 +60,7 @@ class Locators:
     CONSTRUCTOR_BUTTON = (By.XPATH, ".//ul[@class = 'AppHeader_header__list__3oKJj']//a[@class = 'AppHeader_header__link__3D_hX']")
 
     # Кнопка «Булки»
-    BUNS = (By.XPATH, ".//div[@style = 'display: flex;']/div[@class = 'tab_tab__1SPyG  pt-4 pr-10 pb-4 pl-10 noselect']")
+    BUNS = (By.XPATH, ".//div[@style = 'display: flex;']//span[text() = 'Булки']")
 
     # Список булок
     BUNS_LST = (By.XPATH, ".//h2[text() = 'Булки']/following-sibling::ul[@class = 'BurgerIngredients_ingredients__list__2A-mT']")
@@ -76,6 +76,7 @@ class Locators:
 
     # Список начинок
     FILLINGS_LST = (By.XPATH, ".//h2[text() = 'Начинки']/following-sibling::ul[@class = 'BurgerIngredients_ingredients__list__2A-mT']")
+
 
 
 

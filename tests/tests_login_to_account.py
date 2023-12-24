@@ -4,7 +4,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from constants import Constants
 from locators import Locators
 
-class Test:
+class TestLoginToPrivateOffice:
     def test_login_through_account_button_on_main_page(self, driver):
         driver.find_element(*Locators.LOGIN_TO_ACCOUNT_BUTTON).click()
         WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(Locators.LOGIN_PAGE))
@@ -29,6 +29,7 @@ class Test:
         WebDriverWait(driver, 10).until(
             expected_conditions.visibility_of_element_located(Locators.REG_PAGE))
         assert driver.current_url == Constants.URL_REG
+
 
 
 

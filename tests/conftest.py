@@ -24,5 +24,5 @@ def login(driver):
     driver.find_element(*Locators.PASSWORD_FIELD).send_keys(Constants.TEST_PASSWORD)
     driver.find_element(*Locators.ENTER_BUTTON).click()
     WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(Locators.SITE_PAGE))
-    return driver
+
 

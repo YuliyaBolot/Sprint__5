@@ -9,7 +9,7 @@ from locators import Locators
 
 faker = Faker()
 
-class Test:
+class TestRegistration:
     def test_successful_registration(self, driver):
         name = faker.name()
         email = faker.email()
@@ -37,4 +37,5 @@ class Test:
         failed_text = WebDriverWait(driver, 10).until(
             expected_conditions.visibility_of_element_located(Locators.FAILED_REG_TEXT)).text
         assert failed_text == "Некорректный пароль"
+
 

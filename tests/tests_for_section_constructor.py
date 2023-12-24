@@ -3,8 +3,9 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 from locators import Locators
 
-class Test:
+class TestConstructor:
     def test_for_section_buns(self, driver):
+        driver.find_element(*Locators.SAUCES).click()
         driver.find_element(*Locators.BUNS).click()
         buns_lst = driver.find_element(*Locators.BUNS_LST)
         driver.execute_script("arguments[0].scrollIntoView();", buns_lst)
@@ -21,5 +22,6 @@ class Test:
         fillings_lst = driver.find_element(*Locators.FILLINGS_LST)
         driver.execute_script("arguments[0].scrollIntoView();", fillings_lst)
         assert WebDriverWait(driver, 5).until(expected_conditions.visibility_of_element_located(Locators.FILLINGS_LST))
+
 
 
